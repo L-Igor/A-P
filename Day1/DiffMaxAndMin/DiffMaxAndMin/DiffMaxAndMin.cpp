@@ -6,37 +6,47 @@
 
 using namespace std;
 
-int REZ(int* A, int n)
+int MAX(int* a, int n)
 {
-    int max = A[0];
+   int max = a[0];
+   for (int i = 1; i < n; i++)
+   {
+       if (max < a[i])
+       {
+           max = a[i];
+      }
+    }
+   return max;
+}
+
+int MIN(int* a, int n)
+{
+    int min = a[0];
     for (int i = 1; i < n; i++)
     {
-        if (A[i] > max)
+        if (min > a[i])
         {
-            max = A[i];
+            min = a[i];
         }
     }
-    cout << "max= " << max << endl;
+    return min;
+}
 
-    int min = A[0];
-    for (int i = 1; i > n; i++)
-    {
-        if (A[i] < min)
-        {
-            min = A[i];
-        }
-    }
-    cout << "min= " << min << endl;
-    int rez = max - min;
-    cout << "rez= " << rez << endl;
-    return 0;
+int REZ(int* a, int n)
+{
+    int max = MAX(a, n);
+    int min = MIN(a, n);
+    int rez = max - min;    // int rez = MAX(a, n) - MIN(a, n);
+    return rez;
 }
 
 int main()
 {
     int const N = 5;
-    int arr[N] = { 1,2,3,4,5, };
-    REZ(arr, N);
+    int Arr[N] = { 1,2,3,4,5 };
+    int rez = REZ(Arr, N);
+    cout << "rez= " << rez << endl;
+
     system("pause");
     return 0;
 }
