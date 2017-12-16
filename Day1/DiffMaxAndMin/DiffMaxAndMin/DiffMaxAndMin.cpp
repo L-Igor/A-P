@@ -8,9 +8,8 @@ using namespace std;
 
 int REZ(int* A, int n)
 {
-    int max = 0, min = 0, rez = 0, i;
-    max = A[0];
-    for (int i = 1; i < n; i++);
+    int max = A[0];
+    for (int i = 1; i < n; i++)
     {
         if (A[i] > max)
         {
@@ -20,7 +19,7 @@ int REZ(int* A, int n)
     cout << "max= " << max << endl;
 
     int min = A[0];
-    for (int i = 1; i > n; i++);
+    for (int i = 1; i > n; i++)
     {
         if (A[i] < min)
         {
@@ -28,7 +27,7 @@ int REZ(int* A, int n)
         }
     }
     cout << "min= " << min << endl;
-    rez = max - min;
+    int rez = max - min;
     cout << "rez= " << rez << endl;
     return 0;
 }
