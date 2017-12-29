@@ -286,50 +286,57 @@ return 0;
 //Задача 13
 /*int Fun13(int** A, int N)
 {
-int sum = 0;
-for (int i = 0; i < N; i++)
-{
-sum += A[i][i];
-}
-return sum;
+    int sum = 0;
+    for (int i = 0; i < N; i++)
+    {
+        sum += A[i][i];
+    }
+    return sum;
 }
 
 void PrintMatrix(int** A, int N)
 {
-for (int i = 0; i < N; i++)
-{
-for (int j = 0; j < N; j++)
-{
-cout << setw(4) << A[i][j] << " ";  //setw-выравнивание матрицы
-}
-cout << endl;
-}
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            cout << setw(4) << A[i][j] << " ";  //setw-выравнивание матрицы
+        }
+        cout << endl;
+    }
 }
 
 int main()
 {
-int const N = 3;
-int** A = new int* [N];
-for (int i = 0; i < N; i++)
-{
-for (int j = 0; j < N; j++)
-{
-A[i][j] = i + (j*5);
-}
-}
+    int const N = 3;
+    int** A = new int*[N];
+    for (int i = 0; i < N; i++)
+    {
+        A[i] = new int[N];
+    }
 
-cout << "Isxot" << endl;
-PrintMatrix(A, N);
-int sum = 0;
-sum = Fun13(A, N);
-cout << "Summa = " << sum << endl;
-for (int i = 0; i < N; i++)
-{
-delete[] A[i];
-}
-delete[] A;
-system("pause");
-return 0;
+    for (int i = 0; i < N; i++)
+    {
+        for (int j = 0; j < N; j++)
+        {
+            A[i][j] = i + (j * 5);
+        }
+    }
+
+    cout << "Isxot" << endl;
+    PrintMatrix(A, N);
+    int sum = 0;
+    sum = Fun13(A, N);
+    cout << "Summa = " << sum << endl;
+
+    for (int i = 0; i < N; i++)
+    {
+        delete[] A[i];
+    }
+    delete[] A;
+
+    system("pause");
+    return 0;
 }*/
 
 
@@ -337,20 +344,23 @@ return 0;
 
 void Fun16(char* A)
 {
-    for (int i = 0; i < strlen(A) / 2; i++)
+    int n = strlen(A);
+    for (int i = 0; i < n / 2; i++)
     {
         int x = A[i];
-        A[i] = A[strlen(A) - 1 - i];
-        A[strlen(A) - 1 - i] = x;
+        A[i] = A[n - 1 - i];
+        A[n - 1 - i] = x;
     }
 }
 
 int main()
 {
-    char A[] = { "a,b,c,d,f,r,e,w,/0" };
-    cout << A[] << endl;
+    //char A[] = "abcdfrew";
+    char A[] = { 'a','b','c','d','f','r','e','w', '\0' };
+    cout << A << endl;
     Fun16(A);
-    cout << A[] << endl;
+    cout << A << endl;
+
     system("pause");
     return 0;
 }
