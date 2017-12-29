@@ -342,7 +342,7 @@ int main()
 
 //Задача 16
 
-void Fun16(char* A)
+/*void Fun16(char* A)
 {
     int n = strlen(A);
     for (int i = 0; i < n / 2; i++)
@@ -360,6 +360,170 @@ int main()
     cout << A << endl;
     Fun16(A);
     cout << A << endl;
+
+    system("pause");
+    return 0;
+}*/
+
+
+//Задача 10
+/*int fun8(int *a, int n)
+{
+    int col = 0;
+    for (int i = 0; i < n; i++)
+    {
+        switch (a[i])
+        {
+            case 2:
+                col++;
+                break;
+            case 4:
+                col++;
+                break;
+            case 8:
+                col++;
+                break;
+            case 16:
+                col++;
+                break;
+            case 32:
+                col++;
+                break;
+            case 64:
+                col++;
+                break;
+        }
+
+        if (a[i] == 2)
+        {
+            col++;
+        }
+        else if (a[i] == 4)
+        {
+            col++;
+        }
+        else if (a[i] == 8)
+        {
+            col++;
+        }
+        else if (a[i] == 16)
+        {
+            col++;
+        }
+        else if (a[i] == 32)
+        {
+            col++;
+        }
+        else if (a[i] == 64)
+        {
+            col++;
+        }
+
+        switch (a[i])
+        {
+            case 2:
+            case 4:
+            case 8:
+            case 16:
+            case 32:
+            case 64:
+                col++;
+                break;
+        }
+
+        if (a[i] == 2 || a[i] == 4 || a[i] == 8 || a[i] == 16 || a[i] == 32 || a[i] == 64)
+        {
+            col++;
+        }
+    }
+    return col;
+}
+
+
+//void fun15(char *c)
+//{
+//    char a = c[0];
+//    for (int i = 1; i < strlen(c); i++)
+//    {
+//        char t = c[i];
+//        c[i] = c[i - 1];
+//        c[i - 1] = t;
+//    }
+//    c[strlen(c) - 1] = a;
+//}
+
+void fun15(char *c)
+{
+    char firstItem = c[0];
+    for (int i = 0; i < strlen(c) - 1; i++)
+    {
+        c[i] = c[i + 1];
+    }
+    c[strlen(c) - 1] = firstItem;
+}
+
+int main()
+{
+    //char A[] = "abcdfrew";
+    char A[] = { 'a','b','c','d','f','r','e','w', '\0' };
+    cout << A << endl;
+    fun15(A);
+    cout << A << endl;
+
+    system("pause");
+    return 0;
+}*/
+
+
+//20 задача
+//int fun18(char *c)
+//{
+//    int n = strlen(c), col = 0;
+//    for (int i = 0; i < n; i++)
+//    {
+//        if (c[i] == c[i + 1])
+//        {
+//            for (int j = i; j < n; j++)
+//            {
+//                c[j] = c[j + 1];
+//            }
+//            n--;
+//            col++;
+//        }
+//    }
+//    return col;
+//}
+
+int fun18(char *c)
+{
+    char *a = c;
+    char *b = c;
+    int count = 0;
+
+    for (int i = 0; i < strlen(c); i++)
+    {
+        ++a;
+        if (*a != *(a + 1))
+        {
+            ++b;
+            *b = *a;
+        }
+        else
+        {
+            ++count;
+        }
+    }
+
+    return count;
+}
+
+int main()
+{
+    char A[] = "abccccdffreeeeeeew";
+    cout << A << endl;
+    int rez = fun18(A);
+    cout << A << endl;
+    cout << "rez = " << rez << endl;
 
     system("pause");
     return 0;
